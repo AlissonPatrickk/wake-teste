@@ -82,3 +82,7 @@ header {
 .card-custom:hover .card-custom-info {
   opacity: 1;
 }
+
+icon-spacing{
+  padding: 10px 0 0 10px;
+}

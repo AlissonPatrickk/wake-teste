@@ -22,14 +22,14 @@ const Card: React.FC<Props> = ({ item }) => {
     return (
         <>
             {imageUrl &&
-                <a href={link} target="_blank" rel="noopener noreferrer" className='card-custom'>
-                    <img style={{ width: '100%', height: 'auto' }} src={imageUrl} alt={userId} />
+                <a href={link} target='_blank' rel='noopener noreferrer' className='card-custom'>
+                    <img  src={imageUrl} alt={userId} />
                     <div className='card-custom-info'>
                         <div style={{ textAlign: 'center' }}>
                             <div>@{username}</div>
-                            <div><FontAwesomeIcon icon={faHeart} size="lg" style={{ margin: '15px 5px 0 0' }} />{upvotes}</div>
-                            <div><FontAwesomeIcon icon={faComment} style={{ margin: '15px 5px 0 0' }} />{comentarios}</div>
-                            <div><FontAwesomeIcon icon={faCalendarDays} style={{ margin: '15px 5px 0 0' }} />{formattedDate}</div>
+                            <div><FontAwesomeIcon icon={faHeart} size='lg' style={{ margin: '15px 5px 0 0' }} />{upvotes}</div>
+                            <div><FontAwesomeIcon icon={faComment} size='lg' style={{ margin: '15px 5px 0 0' }} />{comentarios}</div>
+                            <div><FontAwesomeIcon icon={faCalendarDays} size='lg' style={{ margin: '15px 5px 0 0' }} />{formattedDate}</div>
                         </div>
                     </div>
                 </a>
