@@ -10,20 +10,31 @@ export interface Props {
 }
 
 const Card: React.FC<Props> = ({ item }) => {
-    const formattedDate = format(new Date(item.criadoEm), 'dd/MM/yyyy HH:mm');
+    // Checking if values ​​exist
+    const formattedDate = item.criadoEm ? format(new Date(item.criadoEm), 'dd/MM/yyyy HH:mm') : 'N/A';
+    const imageUrl = item.imagens?.resolucaoPadrao?.url;
+    const username = item.usuario?.username ?? 'Unknown';
+    const userId = item.usuario?.id ?? 'Unknown';
+    const link = item.link ?? '#';
+    const upvotes = item.upvotes ?? 0;
+    const comentarios = item.comentarios ?? 0;
 
     return (
-        <div className='card-custom'>
-            <img style={{ width: '100%', height: 'auto' }} src={item.imagens.resolucaoPadrao.url} alt={item.usuario.id} />
-            <div className='card-custom-info'>
-                <div style={{ textAlign: 'center' }}>
-                    <div>@{item.usuario.username}</div>
-                    <div><FontAwesomeIcon icon={faHeart} size="lg" style={{ margin: '15px 5px 0 0' }} />{item.upvotes}</div>
-                    <div><FontAwesomeIcon icon={faComment} style={{ margin: '15px 5px 0 0' }} />{item.comentarios}</div>
-                    <div><FontAwesomeIcon icon={faCalendarDays} style={{ margin: '15px 5px 0 0' }} />{formattedDate}</div>
-                </div>
-            </div>
-        </div>
+        <>
+            {imageUrl &&
+                <a href={link} target="_blank" rel="noopener noreferrer" className='card-custom'>
+                    <img style={{ width: '100%', height: 'auto' }} src={imageUrl} alt={userId} />
+                    <div className='card-custom-info'>
+                        <div style={{ textAlign: 'center' }}>
+                            <div>@{username}</div>
+                            <div><FontAwesomeIcon icon={faHeart} size="lg" style={{ margin: '15px 5px 0 0' }} />{upvotes}</div>
+                            <div><FontAwesomeIcon icon={faComment} style={{ margin: '15px 5px 0 0' }} />{comentarios}</div>
+                            <div><FontAwesomeIcon icon={faCalendarDays} style={{ margin: '15px 5px 0 0' }} />{formattedDate}</div>
+                        </div>
+                    </div>
+                </a>
+            }
+        </>
     );
 };
 
