@@ -1,42 +1,84 @@
 html,
 body,
 #root {
-    height: 100%;
-    margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 .content {
-    flex: 1;
-    overflow-y: auto;
+  flex: 1;
+  overflow-y: auto;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .page-content {
-    padding: 20px;
-    padding-top: 70px;
-    padding-bottom: 70px;
+  padding: 20px;
+  padding-top: 80px;
+  padding-bottom: 20px;
 }
 
 .header-custom {
-    background-color: #FFF;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
+  background-color: #FFF;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
 }
 
 .footer-custom {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1000;
-    text-align: center;
-    background-color: #FFF;
-    padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  text-align: center;
+  background-color: #FFF;
+  padding: 10px;
+}
+
+.card-custom {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #FFF;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.card-custom img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-custom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-custom-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-custom:hover .card-custom-info {
+  opacity: 1;
 }
